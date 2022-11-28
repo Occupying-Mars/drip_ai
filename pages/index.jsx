@@ -1,10 +1,21 @@
 import styles from "../styles/Home.module.css";
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Hoodie from "../modelsJS/HoodieJS";
 
 export default function Home() {
+const [colorInput, setColorInput] = useState("#ffffff")
+
+
+// useEffect(() => {
+//   first
+
+//   return () => {
+//     second
+//   }
+// }, [colorInput])
+
   return (
     <main className={styles.container}>
       <section>
@@ -19,9 +30,9 @@ export default function Home() {
           >
             <ambientLight intensity={1.25} />
             <ambientLight intensity={0.1} />
-            <directionalLight intensity={2}/>
+            <directionalLight intensity={2} />
             <Suspense fallback={null}>
-              <Hoodie position={[0, -0.2, -0.8]} />
+              <Hoodie hoodieColor = {colorInput} position={[0, -0.2, -0.8]} />
             </Suspense>
             <OrbitControls />
           </Canvas>
@@ -51,10 +62,7 @@ export default function Home() {
         <button className={styles.buyNowBtn}>Buy now</button>
 
         <div className={styles.colorSpanDiv}>
-          <div className={styles.colorSpanRed}></div>
-          <div className={styles.colorSpanBlue}></div>
-          <div className={styles.colorSpanBlack}></div>
-          <div className={styles.colorSpanWhite}></div>
+          <input value={colorInput} onChange={(e)=>{setColorInput(e.target.value)}} type="color" name="" id="" />
         </div>
       </section>
     </main>
