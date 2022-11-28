@@ -21,9 +21,9 @@ const [colorInput, setColorInput] = useState("#ffffff")
       <section>
         <div className={styles.hoodieShow}>
           <Canvas
-            camera={{ position: [2, 0, 12.25], fov: 15, rotation: Math.PI }}
+            camera={{ position: [0.5, -2, 12.25], fov: 5, rotation: Math.PI }}
             style={{
-              backgroundColor: "#6F7378",
+              backgroundColor: "white",
               width: "30vw",
               height: "60vh",
             }}
