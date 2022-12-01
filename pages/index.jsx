@@ -21,7 +21,7 @@ export default function Home() {
     });
 
     let image_url = response.data.data[0].url;
-
+    console.log(image_url);
     setImgURL(image_url);
     return image_url;
   }
