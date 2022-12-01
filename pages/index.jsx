@@ -11,8 +11,7 @@ export default function Home() {
 
   async function getImage() {
     const configuration = new Configuration({
-      organization: "org-xGy6AvrPDx1InG5KIp5oHpLO",
-      apiKey: "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",
+      apiKey: "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",
     });
     const openai = new OpenAIApi(configuration);
     const response = await openai.createImage({
@@ -35,7 +34,7 @@ export default function Home() {
           <Canvas
             camera={{ position: [2, 0, 12.25], fov: 5, rotation: Math.PI }}
             style={{
-              backgroundColor: "white",
+              backgroundColor: "grey",
               width: "30vw",
               height: "60vh",
             }}
@@ -60,7 +59,6 @@ export default function Home() {
         <button onClick={getImage} className={styles.buyNowBtn}>
           Buy now
         </button>
-<img src={imgURL ? imgURL : ""} alt="" />
         <div className={styles.colorSpanDiv}>
           <input
             value={colorInput}
