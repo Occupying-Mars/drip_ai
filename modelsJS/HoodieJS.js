@@ -1,4 +1,3 @@
-import { Configuration, OpenAIApi } from "openai";
 import React, { useRef, useState } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from "three";
@@ -12,7 +11,7 @@ export default function Hoodie({img, ...props }) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh geometry={nodes.test005.geometry} rotation={[Math.PI/2, 0, 0]}/>
+      <mesh geometry={nodes.test005.geometry} rotation={[Math.PI/2, 0, 0]} material-color={`${props.hoodieColor}`}/>
       <mesh geometry={nodes.Plane005.geometry} material={nodes.Plane005.material} position={[0, 0.4, 0.12]} rotation={[-Math.PI / 2, 0, Math.PI]} material-map={imgTexture}/>
     </group>
   )

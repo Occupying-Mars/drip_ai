@@ -10,16 +10,19 @@ export default function Home() {
   const [imgURL, setImgURL] = useState("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=611&q=80");
 
   async function getImage() {
+    const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: "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",
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+      }
     });
     const openai = new OpenAIApi(configuration);
     const response = await openai.createImage({
-      prompt: "a white siamese cat",
+      prompt: "A cute baby sea otter",
       n: 1,
       size: "512x512",
     });
-
     let image_url = response.data.data[0].url;
     console.log(image_url);
     setImgURL(image_url);
@@ -57,7 +60,7 @@ export default function Home() {
           placeholder="Type your prompt here..."
         />
         <button onClick={getImage} className={styles.buyNowBtn}>
-          Buy now
+          APPLY
         </button>
         <div className={styles.colorSpanDiv}>
           <input
