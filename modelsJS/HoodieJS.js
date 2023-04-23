@@ -3,7 +3,8 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from "three";
 
 export default function Hoodie({img, ...props }) {
-    const imgTexture = useTexture("https://static.scientificamerican.com/sciam/cache/file/077B65B4-9936-4C58-B1F856F562F98259_source.jpg");
+  console.log(img)
+    const imgTexture = useTexture(`${img}`);
     imgTexture.wrapS = THREE.RepeatWrapping;
     imgTexture.repeat.x = - 1;
     const group = useRef()
